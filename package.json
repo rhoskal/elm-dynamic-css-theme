@@ -1,0 +1,12 @@
+{
+  "name": "elm-dynamic-css-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "elm-live": "^4.0.2"
+  },
+  "scripts": {
+    "dev": "elm-live src/Main.elm --port=4000 -- --debug --output=elm.js"
+  }
+}
