@@ -10536,35 +10536,61 @@ var $elm$core$Basics$never = function (_v0) {
 	}
 };
 var $elm$browser$Browser$document = _Browser_document;
+var $author$project$Main$SolarizedLight = {$: 'SolarizedLight'};
 var $author$project$Main$init = function (_v0) {
-	return _Utils_Tuple2(false, $elm$core$Platform$Cmd$none);
+	return _Utils_Tuple2($author$project$Main$SolarizedLight, $elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
+var $author$project$Main$SolarizedDark = {$: 'SolarizedDark'};
 var $author$project$Main$changeTheme = _Platform_outgoingPort('changeTheme', $elm$json$Json$Encode$string);
 var $author$project$Main$update = F2(
-	function (msg, model) {
-		return _Utils_Tuple2(
-			!model,
-			$author$project$Main$changeTheme('dark'));
+	function (msg, _v0) {
+		var theme = msg.a;
+		if (theme.$ === 'SolarizedDark') {
+			return _Utils_Tuple2(
+				$author$project$Main$SolarizedDark,
+				$author$project$Main$changeTheme('dark'));
+		} else {
+			return _Utils_Tuple2(
+				$author$project$Main$SolarizedLight,
+				$author$project$Main$changeTheme(''));
+		}
 	});
-var $author$project$Main$ChangeTheme = {$: 'ChangeTheme'};
+var $author$project$Main$ChangeTheme = function (a) {
+	return {$: 'ChangeTheme', a: a};
+};
 var $author$project$Main$themeButton = function (model) {
-	var btnText = model ? 'Toggle Light' : 'Toggle Dark';
-	return A2(
-		$elm$html$Html$button,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('theme-btn'),
-				$elm$html$Html$Events$onClick($author$project$Main$ChangeTheme)
-			]),
-		_List_fromArray(
-			[
-				$elm$html$Html$text(btnText)
-			]));
+	if (model.$ === 'SolarizedDark') {
+		return A2(
+			$elm$html$Html$button,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('theme-btn'),
+					$elm$html$Html$Events$onClick(
+					$author$project$Main$ChangeTheme($author$project$Main$SolarizedLight))
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Toggle Light')
+				]));
+	} else {
+		return A2(
+			$elm$html$Html$button,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('theme-btn'),
+					$elm$html$Html$Events$onClick(
+					$author$project$Main$ChangeTheme($author$project$Main$SolarizedDark))
+				]),
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Toggle Dark')
+				]));
+	}
 };
 var $author$project$Main$view = function (model) {
 	return {
@@ -10581,10 +10607,10 @@ var $author$project$Main$view = function (model) {
 						$author$project$Main$themeButton(model)
 					]))
 			]),
-		title: 'Elm app'
+		title: 'Elm dynamic css theme'
 	};
 };
 var $author$project$Main$main = $elm$browser$Browser$document(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ChangeTheme":[]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ChangeTheme":["Main.Theme"]}},"Main.Theme":{"args":[],"tags":{"SolarizedLight":[],"SolarizedDark":[]}}}}})}});}(this));

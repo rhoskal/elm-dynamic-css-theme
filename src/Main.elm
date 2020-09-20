@@ -10,13 +10,18 @@ import Html.Events exposing (onClick)
 -- MODEL
 
 
+type Theme
+    = SolarizedLight
+    | SolarizedDark
+
+
 type alias Model =
-    Bool
+    Theme
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( False, Cmd.none )
+    ( SolarizedLight, Cmd.none )
 
 
 
@@ -40,14 +45,19 @@ subscriptions _ =
 
 
 type Msg
-    = ChangeTheme
+    = ChangeTheme Theme
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
+update msg _ =
     case msg of
-        ChangeTheme ->
-            ( not model, changeTheme "dark" )
+        ChangeTheme theme ->
+            case theme of
+                SolarizedDark ->
+                    ( SolarizedDark, changeTheme "dark" )
+
+                SolarizedLight ->
+                    ( SolarizedLight, changeTheme "" )
 
 
 
@@ -56,21 +66,19 @@ update msg model =
 
 themeButton : Model -> Html Msg
 themeButton model =
-    let
-        btnText =
-            if model == True then
-                "Toggle Light"
+    case model of
+        SolarizedDark ->
+            button [ class "theme-btn", onClick (ChangeTheme SolarizedLight) ]
+                [ text "Toggle Light" ]
 
-            else
-                "Toggle Dark"
-    in
-    button [ class "theme-btn", onClick ChangeTheme ]
-        [ text btnText ]
+        SolarizedLight ->
+            button [ class "theme-btn", onClick (ChangeTheme SolarizedDark) ]
+                [ text "Toggle Dark" ]
 
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = "Elm app"
+    { title = "Elm dynamic css theme"
     , body =
         [ div [ class "centered" ]
             [ themeButton model ]
