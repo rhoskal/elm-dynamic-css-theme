@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-size: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    color: inherit;
+    cursor: pointer;
+}
+
+:root {
+    --theme-background: #FDF6E3;
+    --theme-foreground: #657A81;
+}
+
+.dark :root {
+    --theme-background: #002B36;
+    --theme-foreground: #839496;
+}
+
+.centered {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-background);
+    color: var(--theme-foreground);
+}
+
+.theme-btn {
+    color: #B58900;
+}

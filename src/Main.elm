@@ -2,6 +2,7 @@ module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
 import Html exposing (Html, button, div, text)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 
 
@@ -50,8 +51,8 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Elm app"
     , body =
-        [ div []
-            [ button [ onClick ToggleTheme ] [ text "toggle theme" ] ]
+        [ div [ class "centered" ]
+            [ button [ class "theme-btn", onClick ToggleTheme ] [ text "toggle theme" ] ]
         ]
     }
 

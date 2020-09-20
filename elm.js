@@ -10555,13 +10555,17 @@ var $author$project$Main$view = function (model) {
 			[
 				A2(
 				$elm$html$Html$div,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('centered')
+					]),
 				_List_fromArray(
 					[
 						A2(
 						$elm$html$Html$button,
 						_List_fromArray(
 							[
+								$elm$html$Html$Attributes$class('theme-btn'),
 								$elm$html$Html$Events$onClick($author$project$Main$ToggleTheme)
 							]),
 						_List_fromArray(
