@@ -1,15 +1,15 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    font-size: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: inherit;
 }
 
 body {
-    font-size: 62.5%;
-    font-family: 'Poppins', sans-serif;
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
 }
 
 button,
@@ -17,53 +17,53 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: inherit;
+  font-family: inherit;
 }
 
 button {
-    color: inherit;
-    cursor: pointer;
+  color: inherit;
+  cursor: pointer;
 }
 
 :root {
-    --theme-background: #fdf6e3;
-    --theme-selection-background: #ece7d5;
-    --theme-foreground: #657a81;
-    --theme-accent1: #2aa198;
-    --theme-accent2: #b58900;
+  --theme-background: #fdf6e3;
+  --theme-selection-background: #ece7d5;
+  --theme-foreground: #657a81;
+  --theme-accent1: #2aa198;
+  --theme-accent2: #b58900;
 }
 
 .dark {
-    --theme-background: #002b36;
-    --theme-selection-background: #073642;
-    --theme-foreground: #b58900;
-    --theme-accent1: #D33682;
-    --theme-accent2: #268BD2;
+  --theme-background: #002b36;
+  --theme-selection-background: #073642;
+  --theme-foreground: #b58900;
+  --theme-accent1: #d33682;
+  --theme-accent2: #268bd2;
 }
 
 .centered {
-    position: relative;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: var(--theme-background);
-    color: var(--theme-foreground);
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: var(--theme-background);
+  color: var(--theme-foreground);
 }
 
 .theme-btn {
-    font-size: 1.4rem;
-    line-height: 1.2;
-    padding: .8em 2.1em;
-    border-radius: 30px;
-    background: var(--theme-background);
-    color: var(--theme-accent2);
-    border: 2px solid var(--theme-accent1);
-    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, .22);
-    transition: background-color 0.3s ease-in-out;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding: 0.8em 2.1em;
+  border-radius: 30px;
+  background: var(--theme-background);
+  color: var(--theme-accent2);
+  border: 2px solid var(--theme-accent1);
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.22);
+  transition: background-color 0.3s ease-in-out;
 }
 
 .theme-btn:hover {
-    background: var(--theme-selection-background);
+  background: var(--theme-selection-background);
 }

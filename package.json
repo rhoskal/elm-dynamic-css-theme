@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "elm-live": "^4.0.2"
+    "elm-live": "^4.0.2",
+    "prettier": "^2.1.2"
   },
   "scripts": {
-    "dev": "elm-live src/Main.elm --port=4000 -- --debug --output=elm.js"
+    "dev": "elm-live src/Main.elm --port=4000 -- --debug --output=elm.js",
+    "format": "prettier --write 'public/css/*.{css,scss}'"
   }
 }
