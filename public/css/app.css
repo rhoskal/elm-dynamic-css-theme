@@ -27,12 +27,18 @@ button {
 
 :root {
     --theme-background: #fdf6e3;
+    --theme-selection-background: #ece7d5;
     --theme-foreground: #657a81;
+    --theme-accent1: #2aa198;
+    --theme-accent2: #b58900;
 }
 
 .dark {
     --theme-background: #002b36;
+    --theme-selection-background: #073642;
     --theme-foreground: #b58900;
+    --theme-accent1: #D33682;
+    --theme-accent2: #268BD2;
 }
 
 .centered {
@@ -47,7 +53,17 @@ button {
 }
 
 .theme-btn {
-    font-size: 2rem;
-    padding: 1rem;
-    border-radius: 16px;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    padding: .8em 2.1em;
+    border-radius: 30px;
+    background: var(--theme-background);
+    color: var(--theme-accent2);
+    border: 2px solid var(--theme-accent1);
+    box-shadow: 0 10px 10px -8px rgba(0, 0, 0, .22);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.theme-btn:hover {
+    background: var(--theme-selection-background);
 }
