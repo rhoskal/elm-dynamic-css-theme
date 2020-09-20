@@ -8,6 +8,7 @@
 }
 
 body {
+    font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -25,13 +26,13 @@ button {
 }
 
 :root {
-    --theme-background: #FDF6E3;
-    --theme-foreground: #657A81;
+    --theme-background: #fdf6e3;
+    --theme-foreground: #657a81;
 }
 
-.dark :root {
-    --theme-background: #002B36;
-    --theme-foreground: #839496;
+.dark {
+    --theme-background: #002b36;
+    --theme-foreground: #b58900;
 }
 
 .centered {
@@ -46,5 +47,8 @@ button {
 }
 
 .theme-btn {
-    color: #B58900;
+    /*color: #b58900;*/
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 16px;
 }

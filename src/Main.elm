@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+port module Main exposing (..)
 
 import Browser
 import Html exposing (Html, button, div, text)
@@ -11,12 +11,19 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    Int
+    Bool
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( 1, Cmd.none )
+    ( False, Cmd.none )
+
+
+
+-- PORTS
+
+
+port changeTheme : String -> Cmd msg
 
 
 
@@ -24,7 +31,7 @@ init _ =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none
 
 
@@ -33,18 +40,32 @@ subscriptions model =
 
 
 type Msg
-    = ToggleTheme
+    = ChangeTheme
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        ToggleTheme ->
-            ( model + 1, Cmd.none )
+        ChangeTheme ->
+            ( not model, changeTheme "dark" )
 
 
 
 -- VIEW
+
+
+themeButton : Model -> Html Msg
+themeButton model =
+    let
+        btnText =
+            if model == True then
+                "Toggle Light"
+
+            else
+                "Toggle Dark"
+    in
+    button [ class "theme-btn", onClick ChangeTheme ]
+        [ text btnText ]
 
 
 view : Model -> Browser.Document Msg
@@ -52,7 +73,7 @@ view model =
     { title = "Elm app"
     , body =
         [ div [ class "centered" ]
-            [ button [ class "theme-btn", onClick ToggleTheme ] [ text "toggle theme" ] ]
+            [ themeButton model ]
         ]
     }
 

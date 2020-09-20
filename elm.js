@@ -10537,18 +10537,35 @@ var $elm$core$Basics$never = function (_v0) {
 };
 var $elm$browser$Browser$document = _Browser_document;
 var $author$project$Main$init = function (_v0) {
-	return _Utils_Tuple2(1, $elm$core$Platform$Cmd$none);
+	return _Utils_Tuple2(false, $elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (model) {
+var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
+var $author$project$Main$changeTheme = _Platform_outgoingPort('changeTheme', $elm$json$Json$Encode$string);
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		return _Utils_Tuple2(model + 1, $elm$core$Platform$Cmd$none);
+		return _Utils_Tuple2(
+			!model,
+			$author$project$Main$changeTheme('dark'));
 	});
-var $author$project$Main$ToggleTheme = {$: 'ToggleTheme'};
+var $author$project$Main$ChangeTheme = {$: 'ChangeTheme'};
+var $author$project$Main$themeButton = function (model) {
+	var btnText = model ? 'Toggle Light' : 'Toggle Dark';
+	return A2(
+		$elm$html$Html$button,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('theme-btn'),
+				$elm$html$Html$Events$onClick($author$project$Main$ChangeTheme)
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(btnText)
+			]));
+};
 var $author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
@@ -10561,17 +10578,7 @@ var $author$project$Main$view = function (model) {
 					]),
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$button,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$class('theme-btn'),
-								$elm$html$Html$Events$onClick($author$project$Main$ToggleTheme)
-							]),
-						_List_fromArray(
-							[
-								$elm$html$Html$text('toggle theme')
-							]))
+						$author$project$Main$themeButton(model)
 					]))
 			]),
 		title: 'Elm app'
@@ -10580,4 +10587,4 @@ var $author$project$Main$view = function (model) {
 var $author$project$Main$main = $elm$browser$Browser$document(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ToggleTheme":[]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ChangeTheme":[]}}}}})}});}(this));
