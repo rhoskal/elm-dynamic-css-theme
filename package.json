@@ -8,7 +8,9 @@
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "dev": "elm-live src/Main.elm --port=4000 -- --debug --output=elm.js",
+    "copy-assets": "cp -Rf public dist",
+    "build": "yarn copy-assets && elm make src/Main.elm --output=dist/js/elm.js",
+    "dev": "yarn copy-assets && elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js",
     "format": "prettier --write 'public/css/*.{css,scss}'"
   }
 }
