@@ -10575,7 +10575,7 @@ var $author$project$Main$themeButton = function (model) {
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('Toggle Light')
+					$elm$html$Html$text('Solarized Light')
 				]));
 	} else {
 		return A2(
@@ -10588,7 +10588,7 @@ var $author$project$Main$themeButton = function (model) {
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('Toggle Dark')
+					$elm$html$Html$text('Solarized Dark')
 				]));
 	}
 };

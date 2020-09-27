@@ -69,11 +69,11 @@ themeButton model =
     case model of
         SolarizedDark ->
             button [ class "theme-btn", onClick (ChangeTheme SolarizedLight) ]
-                [ text "Toggle Light" ]
+                [ text "Solarized Light" ]
 
         SolarizedLight ->
             button [ class "theme-btn", onClick (ChangeTheme SolarizedDark) ]
-                [ text "Toggle Dark" ]
+                [ text "Solarized Dark" ]
 
 
 view : Model -> Browser.Document Msg
