@@ -2,5 +2,6 @@
 Use CSS3 variables to dynamically change the theme.
 
 ## Running
-1. Install deps using `yarn install`
-2. Run dev server using `yarn dev`
+1. Run nix shell with `nix-shell --pure`
+2. Install deps using `yarn install`
+3. Run dev server using `yarn dev`
