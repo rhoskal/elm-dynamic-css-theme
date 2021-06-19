@@ -3,8 +3,6 @@
 with pkgs;
 
 let
-  inherit (lib) optional optionals;
-
   basePackages = [
     elmPackages.elm
     elmPackages.elm-format
