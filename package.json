@@ -10,12 +10,14 @@
     "elm-live": "4.0.2",
     "husky": "6.0.0",
     "lint-staged": "11.0.0",
+    "netlify-cli": "3.37.37",
     "prettier": "2.3.1"
   },
   "scripts": {
     "build": "yarn copy-assets && elm make src/Main.elm --output=dist/js/elm.js --optimize",
     "clean": "rm -rf dist",
     "copy-assets": "yarn clean && cp -R public dist",
+    "deploy": "netlify deploy --dir=dist --prod",
     "dev": "yarn copy-assets && elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js",
     "format:css": "prettier --write 'public/css/*.{css,scss}'"
   },

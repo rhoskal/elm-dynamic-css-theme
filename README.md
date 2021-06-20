@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/688dfaeb-81ff-49e0-9772-16ce954316eb/deploy-status)](https://app.netlify.com/sites/dreamy-mcclintock-524f08/deploys)
-
 # Elm dynamic css theme
 
 Use CSS3 variables to dynamically change the theme.
