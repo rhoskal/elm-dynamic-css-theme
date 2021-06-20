@@ -29,4 +29,4 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: nix-shell --pure --run "yarn deploy --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID"
+        run: nix-shell --pure --run "yarn deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN"
