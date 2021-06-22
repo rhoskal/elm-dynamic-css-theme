@@ -14,8 +14,6 @@ let
 
   inputs = basePackages;
 in
-
-mkShell {
-  buildInputs = inputs;
-}
-
+  mkShell {
+    buildInputs = inputs;
+  }
