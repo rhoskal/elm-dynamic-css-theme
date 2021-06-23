@@ -18,9 +18,8 @@
     "clean": "rm -rf dist",
     "copy-assets": "yarn clean && cp -R public dist",
     "deploy": "netlify deploy --prod",
-    "dev": "yarn copy-assets && elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js",
-    "format:css": "prettier --write 'public/css/*.{css,scss}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "yarn copy-assets && elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js"
   },
   "lint-staged": {
     "public/css/*.{css,scss}": [
