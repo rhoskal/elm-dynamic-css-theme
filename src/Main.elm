@@ -90,6 +90,7 @@ view model =
 -- MAIN
 
 
+main : Program () Model Msg
 main =
     Browser.document
         { init = init
