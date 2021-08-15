@@ -2,8 +2,10 @@ elm-stuff
 node_modules
 dist
 .idea
+.nova
 .DS_Store
 .env*
+.nix-*
 
 # Local Netlify folder
 .netlify
