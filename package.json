@@ -26,7 +26,8 @@
       "prettier --write"
     ],
     "**/*.elm": [
-      "elm-format --yes"
+      "elm-format --yes",
+      "elm-review --fix-all"
     ]
   }
 }
