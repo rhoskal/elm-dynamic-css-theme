@@ -3,23 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "dependencies": {
-    "elm-json": "0.2.10"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "elm-live": "4.0.2",
     "husky": "7.0.2",
     "lint-staged": "11.1.2",
     "netlify-cli": "6.9.6",
-    "prettier": "2.4.1"
+    "prettier": "2.4.1",
+    "vite": "^2.5.8",
+    "vite-plugin-elm": "^2.5.0"
   },
   "scripts": {
-    "build": "yarn copy-assets && elm make src/Main.elm --output=dist/js/elm.js --optimize",
-    "clean": "rm -rf dist",
-    "copy-assets": "yarn clean && cp -R public dist",
+    "build": "make build",
     "deploy": "netlify deploy --prod",
     "prepare": "husky install",
-    "start": "yarn copy-assets && elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js"
+    "preview": "make preview",
+    "start": "make run"
   },
   "lint-staged": {
     "public/css/*.{css,scss}": [
