@@ -55,4 +55,4 @@ format-elm: ## Format elm
 
 .PHONY: run
 run: ## Run web app
-	yarn vite
+	yarn vite --https
