@@ -53,6 +53,10 @@ format-css: ## Format stylesheets
 format-elm: ## Format elm
 	elm-format src/ --yes
 
+.PHONY: preview
+preview: build ## See what the production build will look like
+	yarn vite preview --https
+
 .PHONY: run
 run: ## Run web app
 	yarn vite --https
