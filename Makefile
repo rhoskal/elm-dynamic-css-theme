@@ -34,16 +34,9 @@ targets:
 # Development targets
 # -------------------
 
-copy-assets:
-	cp -R public dist
-
-.PHONY: clean
-clean: ## Remove build artifacts
-	rm -rf dist
-
 .PHONY: build
-build: clean copy-assets ## Make a production build
-	elm make src/Main.elm --output=dist/js/elm.js --optimize
+build: ## Make a production build
+	yarn vite build
 
 .PHONY: deps
 deps: ## Install all dependencies
@@ -60,6 +53,10 @@ format-css: ## Format stylesheets
 format-elm: ## Format elm
 	elm-format src/ --yes
 
+.PHONY: preview
+preview: build ## See what the production build will look like
+	yarn vite preview --https
+
 .PHONY: run
-run: copy-assets ## Run web app
-	node_modules/.bin/elm-live src/Main.elm --port=4000 --dir=dist -- --debug --output=dist/js/elm.js
+run: ## Run web app
+	yarn vite --https
