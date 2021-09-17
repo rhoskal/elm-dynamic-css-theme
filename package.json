@@ -20,7 +20,7 @@
     "start": "make run"
   },
   "lint-staged": {
-    "public/css/*.{css,scss}": [
+    "css/*.{css,scss}": [
       "prettier --write"
     ],
     "**/*.elm": [

@@ -38,6 +38,10 @@ targets:
 build: ## Make a production build
 	yarn vite build
 
+.PHONY: clean
+clean: ## Remove build artifacts
+	rm -rf dist
+
 .PHONY: deps
 deps: ## Install all dependencies
 	yarn install
